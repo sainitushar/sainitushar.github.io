@@ -1,9 +1,19 @@
 <html>
 hello world
 
-<form action="/action.php" method="post">
+<form onsubmit="myFunction()">
     Name: <input name="name" type="text" /> <br /> 
     Age: <input max="99" min="1" name="age" step="1" type="number" value="18" /> <br />
     <input type="submit" value="Submit" />
 </form>
+
+<script>
+function myFunction() {
+  alert("The form was submitted");
+  var fs = require('fs');
+fs.writeFile("thing.json", "abcd", function(err, result) {
+    if(err) console.log('error', err);
+});
+}
+</script>
 </html>
